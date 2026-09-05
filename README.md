@@ -10,7 +10,8 @@ EDID 声明音频能力。HarmonyOS 随后把媒体音频自动路由到显示�
 > [!IMPORTANT]
 > 这是面向特定 HarmonyOS 音频路由问题的实验性工具，不是通用音频驱动。
 > 已在 Huawei MatePad TGR-W10、HarmonyOS 4.2（Android API 31）及全功能
-> USB-C 显示器连接下验证。
+> USB-C 显示器连接下验证。其他华为平板可以直接安装尝试，但尚未验证，
+> 不保证系统会接受将回送音轨指定到内置扬声器。
 
 ## 下载
 
@@ -86,6 +87,17 @@ Android 仍会正常创建 APK 安装数据、DEX 编译缓存和通知频道配
 - Android 10 或更高版本，因为 `AudioPlaybackCapture` 从 Android 10 开始提供。
 - 设备音频策略必须接受 `AudioTrack.setPreferredDevice()` 指定内置扬声器。
 - 来源应用必须允许播放捕获。
+
+### 其他设备
+
+- 应用不依赖 ADB、Root、Shizuku 或特定 CPU 架构；安装后只需授予录音权限和
+  Android 系统的媒体捕获授权。
+- HarmonyOS 3/4 的较新 MatePad 在满足上述要求时可以尝试，但不同型号、系统
+  版本和音频 HAL 的路由策略可能不同，能安装不等于一定能回送成功。
+- `v0.1.0` 的安装清单仍声明最低 Android 9（API 28），但核心播放捕获 API 实际
+  要求 Android 10（API 29）；Android 9 即使允许安装也不受支持，可能无法启动回送。
+- 目前唯一经过实际验证的组合是 TGR-W10 + HarmonyOS 4.2。欢迎通过 GitHub
+  Issues 反馈型号、系统版本、连接方式和测试结果。
 
 ### 已知限制
 
