@@ -12,6 +12,18 @@ EDID 声明音频能力。HarmonyOS 随后把媒体音频自动路由到显示�
 > 已在 Huawei MatePad TGR-W10、HarmonyOS 4.2（Android API 31）及全功能
 > USB-C 显示器连接下验证。
 
+## 下载
+
+- [下载 MatePadAudioLoopback v0.1.0 APK](https://github.com/LeonZ03/matepad-audio/releases/download/v0.1.0/MatePadAudioLoopback-v0.1.0.apk)
+- [查看全部 GitHub Releases](https://github.com/LeonZ03/matepad-audio/releases)
+
+发布文件校验信息：
+
+```text
+APK SHA-256: A1FF6643070105662D41196B924C3B3626B32063D10946102B219487BD4C75B1
+签名证书 SHA-256: 2AF5A28D6B8F2306579E9525CDE5A86DD0888E42C69669D5115F371D289FAAD1
+```
+
 ## 功能
 
 - 保持视频输出到外接显示器，同时从平板内置扬声器播放允许捕获的媒体声音。
@@ -128,11 +140,17 @@ out/MatePadAudioLoopback-debug.apk
 
 ## 安装与使用
 
-使用 Android Platform Tools 中的 ADB 安装：
+推荐从 [GitHub Releases](https://github.com/LeonZ03/matepad-audio/releases)
+下载正式签名的 APK，然后在平板上直接打开安装；也可以使用 Android Platform
+Tools 中的 ADB 安装：
 
 ```powershell
-adb install -r .\out\MatePadAudioLoopback-debug.apk
+adb install -r .\MatePadAudioLoopback-v0.1.0.apk
 ```
+
+`build.ps1` 生成的是使用每台电脑本地 debug key 签名的开发 APK。它适合源码验证，
+但签名与 GitHub Release 不同，不能直接覆盖安装正式版本；切换签名时需要先卸载
+原应用，这也会清除应用数据和授权。
 
 使用步骤：
 
@@ -169,7 +187,8 @@ adb install -r .\out\MatePadAudioLoopback-debug.apk
 - 仓库不应包含 `framework-res.apk`、Android SDK 压缩包、APK 签名密钥或真实
   设备日志；这些路径已经写入 `.gitignore`。
 - GitHub 源码提交建议只包含源码、文档和构建脚本。
-- 编译后的 APK 建议通过 GitHub Releases 发布，而不是直接提交到 Git 历史。
+- 编译后的正式 APK 通过 GitHub Releases 发布，不直接提交到 Git 历史。
+- 发布者必须妥善保管签名密钥；后续版本需要使用同一证书签名才能覆盖升级。
 - 安装第三方构建产物前，应核对源码、签名和发布者。
 
 ## License
