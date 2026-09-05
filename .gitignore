@@ -1,0 +1,85 @@
+# -----------------------------------------------------------------------------
+# Build output
+# -----------------------------------------------------------------------------
+/.build/
+/.build-deps/
+/out/
+/app/build/
+/build/
+/classes-tone/
+
+*.class
+*.dex
+*.apk
+*.ap_
+*.aab
+*.idsig
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# -----------------------------------------------------------------------------
+# Downloaded Android SDK components and repository metadata
+# -----------------------------------------------------------------------------
+/android-build-tools-*/
+/build-tools_*.zip
+/platform-*.zip
+/framework-res.apk
+/repository*.xml
+/platform-tools/
+/sdk/
+
+# Local compile-time Android API stubs used during early development.
+# Public builds use the official Android SDK downloaded by build.ps1.
+/app/stubs/
+
+# -----------------------------------------------------------------------------
+# Signing keys and local configuration
+# -----------------------------------------------------------------------------
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.pem
+*.key
+keystore.properties
+signing.properties
+local.properties
+.env
+.env.*
+!.env.example
+
+# -----------------------------------------------------------------------------
+# Early one-off routing/ADB experiments (not part of the released application)
+# -----------------------------------------------------------------------------
+/AudioMirror.java
+/AudioRoute.java
+/ReverseAdbClient.java
+/ReverseAdbRelay.java
+/SpeakerTone.java
+/speaker-tone-*
+
+# -----------------------------------------------------------------------------
+# IDE and editor files
+# -----------------------------------------------------------------------------
+/.gradle/
+/.idea/
+/.vscode/
+*.iml
+*.ipr
+*.iws
+*.swp
+*.swo
+*~
+
+# -----------------------------------------------------------------------------
+# OS metadata, logs and temporary files
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
